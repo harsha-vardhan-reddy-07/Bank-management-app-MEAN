@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+
+<div class="deposits">
+
+    <h2>All Deposits</h2>
+    <div class="deposits-body">
+
+        <div class="deposit" *ngFor="let deposit of deposits">
+            <span>
+                <p><b>Deposit name: </b>{{deposit.depositName}}</p>
+                <p><b>Amount: </b> {{deposit.amount}}</p>
+                <p><b>Duration: </b> {{deposit.duration}} months</p>
+                
+                
+            </span>
+            <span>
+                <p><b>Nominee name: </b> {{deposit.nomineeName}}</p>
+                <p><b>Customer name: </b> {{deposit.customerName}}</p>
+                <p><b>Start Date: </b> {{deposit.createdDate.slice(0,10)}}</p>
+                
+            </span>
+            <span>
+                <p><b>Nominee age: </b> {{deposit.nomineeAge}}</p>
+                <p><b>Customer A/c id: </b>{{deposit.customerId}}</p>
+                <p><b>Mature Date: </b> {{deposit.matureDate}}</p>
+            </span>
+            
+        </div>
+
+    </div>
+</div>

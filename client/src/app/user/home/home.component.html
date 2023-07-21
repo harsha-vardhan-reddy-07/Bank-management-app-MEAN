@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+
+<div class="home-page">
+    <div class="home-user-data">
+        <h3>Helloo {{username}}!!</h3>
+        <p><b>account id:</b> {{userid}} </p>
+    </div>
+    <div class="home-body">
+        <div class="home-container1">
+
+            <div class="balance-container">
+                <h4>Account balance</h4>
+                <p>&#8377; {{accountBalance}}</p>
+            </div>
+
+            <div class="send-money-container">
+
+                <form>
+                    <h4>Send money</h4>
+                    <div class="mb-3">
+                      <label for="sendACId" class="form-label">Receiver's a/c id</label>
+                      <input type="text" class="form-control" id="sendACId" placeholder="Enter account id" [(ngModel)]="sendingAcId" name="sendingAcId">
+                    </div>
+                    <div class="mb-3">
+                      <label for="sendAmount" class="form-label">Amount</label>
+                      <input type="number" class="form-control" id="sendAmount" placeholder="Enter amount" [(ngModel)]="sendingAmount" name="sendingAmount">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="sendMoney()">Send</button>
+                  </form>
+    
+            </div>
+
+        </div>
+
+        <div class="home-container2">
+
+            <div class="transactions-container">
+
+                <h4>Recent Transactions</h4>
+
+                <div class="transactions-body">
+
+                    <div *ngFor="let transaction of transactions.reverse()">
+
+                        <div class=" transaction money-sent" *ngIf="transaction.senderId === userid">
+                            <span>
+                                <p><b>Amount: </b>&#8377; {{transaction.amount}}</p>
+                                <p><b>Receiver a/c id:</b> {{transaction.receiverId}} </p>
+                            </span>
+                            <span>
+                                <p><b>Receiver:</b> {{transaction.receiverName}} </p>
+                                <p><b>Time:</b> {{transaction.time}} </p>
+                            </span>
+                        </div>
+    
+                        
+                        <div class="transaction money-received" *ngIf="transaction.receiverId === userid">
+                            <span>
+                                <p><b>Amount: </b>&#8377; {{transaction.amount}}</p>
+                                <p><b>Sender a/c id:</b> {{transaction.senderId}}</p>
+                            </span>
+                            <span>
+                                <p><b>Sender:</b> {{transaction.senderName}}</p>
+                                <p><b>Time:</b> {{transaction.time}} </p>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div> 

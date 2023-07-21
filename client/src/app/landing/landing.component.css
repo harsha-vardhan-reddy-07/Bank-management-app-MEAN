@@ -1,0 +1,161 @@
+
+
+.landing-page{
+    width: 100%;
+    height: fit-content;
+}
+
+  
+
+nav{
+    width: 90%;
+    height: 10vh;
+    margin-left: 5%;
+    position: fixed;
+    top: 1rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(167, 221, 255, 0.422);
+    padding: 0 3%;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 3rem;
+}
+
+nav h3{
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    color: rgb(48, 127, 14);
+}
+
+nav .nav-options{
+    display: flex;
+    gap: 30px;
+}
+nav .nav-options a{
+    font-size: 1.2rem;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    color: rgb(70, 152, 64);
+    text-decoration: none;
+}
+nav .nav-options a:hover{
+    
+    color: rgb(92, 186, 86);
+    /* font-weight: 500; */
+    
+}
+
+
+.landing-hero{
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    background: url('../../assets/landing-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing-hero .titles{
+    position: relative;
+    top: 20vh;
+    left: 2vw;
+    width: 60%;
+}
+.landing-hero .titles h1{
+    font-size: 4rem;
+    color: rgba(23, 117, 0, 0.776);
+    text-shadow: 3px 3px 7px rgba(128, 128, 128, 0.5);
+}
+.landing-hero .titles p{
+    width: 60%;
+    color: rgba(0, 124, 39, 0.536);
+}
+
+
+/* About */
+
+.about{
+    width: 100%;
+    height: fit-content;
+    background: rgb(127,235,167);
+    background: linear-gradient(145deg, rgba(127,235,167,1) 0%, rgb(255, 242, 242) 50%, rgba(150,255,178,1) 100%);
+}
+.about h2{
+    padding-top: 3vh;
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(7, 152, 104);
+}
+
+.about-body{
+    display: flex;
+    padding: 2vh 2vw;
+    height: fit-content;
+}
+.about-body .about-data{
+    margin-top: 3vh;
+    width: 60%;
+    text-align: justify;
+    color: rgb(45, 100, 64);
+}
+
+.about-body .Authentication{
+    width: 40%;
+}
+
+.about-body .Authentication .Auth{
+    width: 80%;
+    height: fit-content;
+    margin: 5% 10%;
+    backdrop-filter: blur(15px);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 1.5rem;
+    /* background-color: rgba(153, 238, 178, 0.696); */
+    background: rgb(43,240,164);
+    background: linear-gradient(145deg, rgba(111, 225, 178, 0.7) 0%, rgba(182,255,218,0.5) 55%, rgba(135, 208, 120, 0.7) 100%);
+}
+
+.about-body .Authentication .hide{
+    display: none;
+}
+
+.about-body .Authentication form{
+    width: 100%;
+    padding: 3vh 2vw;
+    display: flex;
+    flex-direction: column;
+}
+.about-body .Authentication form h3{
+    text-align: center;
+    color: rgb(7, 123, 36);
+}
+
+.about-body .Authentication form input{
+    background-color: rgb(228, 248, 241);
+}
+.about-body .Authentication form select{
+    background-color: rgb(228, 248, 241);
+
+}
+
+.about-body .Authentication form p{
+    text-align: center;
+    margin-top: 20px;
+}
+.about-body .Authentication form p span{
+    color: rgb(32, 153, 18);
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 2vh 0;
+    color: rgb(5, 85, 58);
+}
