@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+
+<div class="home-page">
+    <div class="home-user-data">
+        <div>
+            <p><b>User:</b> {{username}} </p> 
+            <p><b>account id:</b> {{userid}} </p> 
+        </div>
+        <div>
+            <p><b>IFSC code:</b> {{IFSC}} </p> 
+            <p><b>Home branch:</b> {{homeBranch}} </p> 
+        </div>
+    </div>
+    <div class="home-body">
+        <div class="home-container1">
+
+            <div class="balance-container">
+                <h4>Account balance</h4>
+                <p>&#8377; {{accountBalance}}</p>
+            </div>
+
+            <div class="send-money-container">
+
+                <form>
+                    <h4>Send money</h4>
+                    <div class="mb-3">
+                      <label for="sendACId" class="form-label">Receiver's a/c id</label>
+                      <input type="text" class="form-control" id="sendACId" placeholder="Enter account id" [(ngModel)]="sendingAcId" name="sendingAcId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sendIFSC" class="form-label">Receiver's IFSC</label>
+                        <input type="text" class="form-control" id="sendIFSC" placeholder="Enter IFSC" [(ngModel)]="sendingIFSC" name="sendingIFSC">
+                      </div>
+                    <div class="mb-3">
+                      <label for="sendAmount" class="form-label">Amount</label>
+                      <input type="number" class="form-control" id="sendAmount" placeholder="Enter amount" [(ngModel)]="sendingAmount" name="sendingAmount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sendAmount" class="form-label">Payment method</label>
+                        <select class="form-select" id="sendAmount" aria-label="Default select example" name="payment type" [(ngModel)]="sendingMethod">
+                            <option value="">Choose payment method</option>
+                            <option value="IMPS">IMPS</option>
+                            <option value="RTGS">RTGS</option>
+                            <option value="NEFT">NEFT</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sendRemarks" class="form-label">Remarks</label>
+                        <input type="text" class="form-control" id="sendRemarks" placeholder="Remarks" [(ngModel)]="sendingRemarks" name="sendingRemarks">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="sendMoney()">Send</button>
+                  </form>
+    
+            </div>
+
+        </div>
+
+        <div class="home-container2">
+
+            <div class="transactions-container">
+
+                <h4>Recent Transactions</h4>
+
+                <div class="transactions-body">
+
+                    <div *ngFor="let transaction of transactions.reverse()">
+
+                        <div class=" transaction money-sent" *ngIf="transaction.senderId === userid && !transaction.deposit && !transaction.loan">
+                            <span>
+                                <p><b>Amount: </b>&#8377; {{transaction.amount}}</p>
+                                <p><b>Receiver a/c id:</b> {{transaction.receiverId}}</p>
+                            </span>
+                            <span>
+                                <p><b>Receiver:</b> {{transaction.receiverName}} </p>
+                                <p><b>Receiver IFSC:</b> {{transaction.receiverIFSC}} </p>
+                            </span>
+                            <span>
+                                <p><b>Payment Method:</b> {{transaction.paymentMethod}} </p>
+                                <p><b>Time:</b> {{transaction.time}} </p>
+                            </span>
+                            <p><b>Remarks:</b> {{transaction.remarks}} </p>
+                        </div>
+    
+                        
+                        <div class="transaction money-received" *ngIf="transaction.receiverId === userid && !transaction.deposit && !transaction.loan">
+                            <span>
+                                <p><b>Amount: </b>&#8377; {{transaction.amount}}</p>
+                                <p><b>Sender a/c id:</b> {{transaction.senderId}}</p>
+                            </span>
+                            <span>
+                                <p><b>Sender:</b> {{transaction.senderName}}</p>
+                                <p><b>Payment Method:</b> {{transaction.paymentMethod}} </p>
+                            </span>
+                            <span>
+                                <p><b>IFSC:</b> {{transaction.receiverIFSC}}</p>
+                                <p><b>Time:</b> {{transaction.time}} </p>
+                            </span>
+                            <p><b>Remarks:</b> {{transaction.remarks}} </p>
+                        </div>
+
+                        <div class=" transaction money-sent" *ngIf="transaction.senderId === userid && transaction.loan">
+                            <span>
+                                <p><b>Amount: </b>&#8377; {{transaction.amount}}</p>
+                                <p><b>Loan:</b> {{transaction.loan}}</p>
+                            </span>
+                            <span>
+                                <p><b>Remarks:</b> {{transaction.remarks}} </p>
+                                <p><b>Time:</b> {{transaction.time.slice(4, 24)}} </p>
+                            </span>
+                        </div>
+                        <div class=" transaction money-sent" *ngIf="transaction.senderId === userid && transaction.deposit">
+                            <span>
+                                <p><b>Amount: </b>&#8377; {{transaction.amount}}</p>
+                                <p><b>deposit:</b> {{transaction.deposit}}</p>
+                            </span>
+                            <span>
+                                <p><b>Remarks:</b> {{transaction.remarks}} </p>
+                                <p><b>Time:</b> {{transaction.time.slice(4, 24)}} </p>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div> 

@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+
+
+<div class="deposits-page">
+
+    <div class="deposits-container1">
+
+        <div class="deposits">
+
+            <h3>Deposits</h3>
+            <div class="deposits-body"> 
+
+                <div class="deposit" *ngFor="let deposit of deposits.reverse()">
+                    <script>
+                        
+                    </script>
+                    <span>
+                        <p><b>Deposit name: </b> {{deposit.depositName}}</p>
+                        <p><b>Nominee name: </b> {{deposit.nomineeName}}</p>
+                        <p><b>Nominee age: </b> {{deposit.nomineeAge}}</p>
+                    </span>
+                    <span>
+                        <p><b>Amount: </b> {{deposit.amount}}</p>
+                        <p><b>Duration: </b> {{deposit.duration}} months</p>
+                        <p><b>Mature Date: </b> {{deposit.matureDate }} </p>
+                    </span>
+                    
+                </div>
+   
+            </div>
+        </div>
+
+    </div>
+
+    <div class="deposits-container2">
+
+        <div class="new-deposits-container">
+
+            <h3>New Deposit</h3>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="depositNameInput" placeholder="Deposit name" [(ngModel)]="depositName">
+                <label for="depositNameInput">Deposit name</label>
+            </div>
+
+            <div class="input-row">
+
+                <div class="form-floating input-row11">
+                    <input type="text" class="form-control" id="nomineeNameInput" placeholder="text" [(ngModel)]="nomineeName">
+                    <label for="nomineeNameInput">Nominee name</label>
+                </div>
+                <div class="form-floating input-row12">
+                    <input type="number" class="form-control" id="nomineeAgeInput" placeholder="text" [(ngModel)]="nomineeAge">
+                    <label for="nomineeAgeInput">Age</label>
+                </div>
+
+            </div>
+
+            <div class="input-row">
+
+                <div class="form-floating input-row21">
+                    <input type="number" class="form-control" id="depositAmountInput" placeholder="Amount" [(ngModel)]="depositAmount">
+                    <label for="depositAmountInput">Deposit amount</label>
+                </div>
+                <div class="form-floating input-row22">
+                    <input type="number" class="form-control" id="depositDurationInput" placeholder="duration" [(ngModel)]="duration">
+                    <label for="depositDurationInput">Duration (in months)</label>
+                </div>
+
+            </div>
+
+            <p> * I here by agree to all the terms & conditions to make this deposit. I agree to gain interest with the dynamic interests depending up on the market conditions. I agree that at any case I cannot break deposit before mature date.</p>
+
+            <button class="btn btn-primary" (click)="createNewDeposit()" >Deposit</button>
+
+        </div>
+        
+    </div>
+
+</div>

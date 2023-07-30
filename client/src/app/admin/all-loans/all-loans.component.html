@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+<div class="loans-page">
+
+    <div class="loans">
+
+        <h2>All loans</h2>
+        <div class="loans-body">
+
+            <div *ngFor="let loan of loans">
+                <div class="loan" *ngIf="loan.loanStatus !== 'pending'">
+                    <span>
+                        <p><b>Loan type: </b>{{loan.loanType}}</p>
+                        <p><b>Balance: </b> {{loan.balance}}</p>
+                        <p><b>Duration: </b> {{loan.duration}} months</p>
+                    </span>
+                    <span>
+                        <p><b>Nominee name: </b> {{loan.nomineeName}}</p>
+                        <p><b>Total amount: </b> {{loan.loanAmount}}</p>
+                        <p><b>Start Date: </b> {{loan.createdDate.slice(0,10)}}</p>
+                    </span>
+                    <span>
+                        <p><b>Customer name: </b> {{loan.customerName}}</p>
+                        <p><b>Customer A/c id: </b>{{loan.customerId}}</p>
+                        <p *ngIf="loan.loanStatus === 'approved'"><b>End Date: </b> {{loan.endDate}}</p>
+                        <p *ngIf="loan.loanStatus === 'declined'" style="color:rgb(230, 85, 85)"><b style="color: rgb(82, 130, 151)">Loan status: </b> {{loan.loanStatus}}</p>
+                    </span>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="loan-requests-container">
+        <h3>Pending Applications</h3>
+        <div class="loan-requests">
+
+            <div *ngFor="let loan of loans">
+                <div class="loan-request" *ngIf="loan.loanStatus === 'pending'">
+                    <p><b>Loan type: </b>{{loan.loanType}}</p>
+                    <p><b>Customer name: </b>{{loan.customerName}}</p>
+                    <p><b>Customer A/c id: </b>{{loan.customerId}}</p>
+                    <p><b>Amount: </b>{{loan.loanAmount}}</p>
+                    <p><b>Duration: </b>{{loan.duration}} months</p>
+                    <span>
+                        <button class="btn btn-primary" (click)="loanApprove(loan._id)">Approve</button>
+                        <button class="btn btn-danger" (click)="loanDecline(loan._id)">Decline</button>
+                    </span>
+                </div>
+            </div>
+
+ 
+
+        </div>
+    </div>
+
+</div>

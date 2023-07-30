@@ -1,0 +1,25 @@
+<div class="navbar">
+    <h3 *ngIf="userType === 'customer'">SB Bank</h3>
+
+    <div class="nav-options" *ngIf="userType === 'customer'">
+
+        <a routerLink="/home">Home</a>
+        <a routerLink="/deposits">Deposits</a>
+        <a routerLink="/loans">Loans</a>
+        <a routerLink="/transactions">Transactions</a>
+        <a (click)="logout()" >Logout</a>
+
+    </div>
+    <h3 *ngIf="userType === 'admin'">SB Bank (Admin)</h3>
+    <div class="nav-options" *ngIf="userType === 'admin'">
+
+        <a routerLink="/admin">Home</a>
+        <a routerLink="/all-users">Users</a>
+        <a routerLink="/all-deposits">Deposits</a>
+        <a routerLink="/all-loans">Loans</a>
+        <a routerLink="/all-transactions">Transactions</a>
+        <a (click)="logout()" >Logout</a>
+        
+    </div>
+
+</div>

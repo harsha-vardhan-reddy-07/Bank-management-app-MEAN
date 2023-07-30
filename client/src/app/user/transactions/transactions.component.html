@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+
+
+<div class="all-transactions-page">
+
+            <h2>All Transactions</h2>
+
+            <div class="transactions-body">
+
+                <div  *ngFor="let transaction of transactions.reverse()">
+
+                    <div class="transaction" *ngIf="(transaction.senderId === userId || transaction.receiverId === userId) && !transaction.loan && !transaction.deposit ">
+                        <span>
+                            <p><b>Amount:</b> {{transaction.amount}} </p>
+                            <p><b>Receiver:</b> {{transaction.receiverName}} </p>
+                            <p><b>Receiver's a/c id:</b> {{transaction.receiverId}} </p>
+                        </span>
+                        <span>
+                            <p><b>Sender:</b> {{transaction.senderName}} </p>
+                            <p><b>Sender's a/c id:</b> {{transaction.senderId}} </p>
+                            <p><b>Time:</b> {{transaction.time}} </p>
+                        </span>
+                    </div>
+
+                    <div class="transaction" *ngIf="(transaction.senderId === userId || transaction.receiverId === userId) && transaction.loan">
+                        <span>
+                            <p><b>Amount:</b> {{transaction.amount}} </p>
+                            <p><b>Loan:</b> {{transaction.loan}} </p>
+                        </span>
+                        <span>
+                            <p><b>Sender's a/c id:</b> {{transaction.senderId}} </p>
+                            <p><b>Time:</b> {{transaction.time}} </p>
+                        </span>
+                    </div>
+
+                    <div class="transaction" *ngIf="(transaction.senderId === userId || transaction.receiverId === userId) && transaction.deposit">
+                        <span>
+                            <p><b>Amount:</b> {{transaction.amount}} </p>
+                            <p><b>Deposit name:</b> {{transaction.deposit}} </p>
+                        </span>
+                        <span>
+                            <p><b>Sender's a/c id:</b> {{transaction.senderId}} </p>
+                            <p><b>Time:</b> {{transaction.time}} </p>
+                        </span>
+                    </div>
+
+                </div>
+
+
+            </div>
+</div>

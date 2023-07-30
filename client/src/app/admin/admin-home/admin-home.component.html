@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="admin-page">
+
+    <div class="card admin-card users-card">
+        <h4>Users</h4>
+        <p> {{userCount}} </p>
+        <button class="btn btn-primary" routerLink="/all-users">View all</button>
+    </div>
+
+    <div class="card admin-card transactions-card">
+        <h4>Transactions</h4>
+        <p>{{transactionCount}}</p>
+        <button class="btn btn-primary" routerLink="/all-transactions">View all</button>
+    </div>
+
+    <div class="card admin-card deposits-card">
+        <h4>Deposits</h4>
+        <p>{{depostsCount}}</p>
+        <button class="btn btn-primary" routerLink="/all-deposits">View all</button>
+    </div>
+
+    <div class="card admin-card loans-card">
+        <h4>Loans</h4>
+        <p>{{loansCount}}</p>
+        <button class="btn btn-primary" routerLink="/all-loans">View all</button>
+    </div>
+
+</div>

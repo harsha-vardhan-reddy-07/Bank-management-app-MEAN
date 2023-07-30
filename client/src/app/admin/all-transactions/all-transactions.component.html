@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+
+
+<div class="all-transactions-page">
+
+            <h2>All Transactions</h2>
+
+            <div class="transactions-body">
+
+                <div class="transaction" *ngFor="let transaction of transactions.reverse()">
+
+                        <span>
+                            <p><b>Amount:</b> {{transaction.amount}} </p>
+                            <p><b>Receiver:</b> {{transaction.receiverName}} </p>
+                            <p><b>Receiver's a/c id:</b> {{transaction.receiverId}} </p>
+                        </span>
+                        <span>
+                            <p><b>Sender:</b> {{transaction.senderName}} </p>
+                            <p><b>Sender's a/c id:</b> {{transaction.senderId}} </p>
+                            <p><b>Time:</b> {{transaction.time}} </p>
+                        </span>
+
+                </div>
+
+
+            </div>
+</div>

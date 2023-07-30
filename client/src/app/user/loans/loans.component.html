@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+
+<div class="loans-page">
+ 
+    <div class="loans-container1">
+
+        <div class="loans">
+
+            <h3>loans</h3>
+            <div class="loans-body">
+
+                <div *ngFor="let loan of loans">
+                    <div class="loan" *ngIf="loan.balance > 0">
+                        <span>
+                            <p><b>loan type: </b>{{loan.loanType}}</p>
+                            <p><b>Nominee name: </b> {{loan.nomineeName}}</p>
+                            <p><b>Loan amount: </b> {{loan.loanAmount}}</p>
+                        </span>
+                        <span>
+                            <p><b>Balance: </b> {{loan.balance}}</p>
+                            <p><b>Duration: </b> {{loan.duration}} months</p>
+                            <p *ngIf="loan.loanStatus !== 'approved'"><b>Loan status: </b>{{loan.loanStatus}}</p>
+                            <p *ngIf="loan.loanStatus === 'approved'"><b>End Date: </b> {{loan.endDate}}</p>
+                        </span>
+    
+                        <div>
+                            <div class="input-group mb-3 paymentInputDiv" *ngIf="loan.loanStatus === 'approved' && rePayId === loan._id">
+                                <input type="number" class="form-control" [(ngModel)]="rePayAmount"  placeholder="re-pay loan amount" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-primary" type="button" id="button-addon2" (click)="makePayment(loan._id)">make payment</button>
+                            </div>
+                            <button class="btn btn-primary" *ngIf="loan.loanStatus === 'approved' && rePayId !== loan._id" (click)="rePayId = loan._id">Make payment</button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="loans-container2">
+
+        <div class="new-loans-container">
+
+            <h3>Apply for New Loan</h3>
+
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="loanType">
+                <option selected value="">Choose loan type</option>
+                <option value="home-loan">Home Loan</option>
+                <option value="vehicle-loan">Vehicle Loan</option>
+                <option value="personal-loan">Personal Loan</option>
+            </select>
+
+            <div class="input-row">
+
+                <div class="form-floating input-row11">
+                    <input type="text" class="form-control" id="nomineeNameInput" placeholder="text" [(ngModel)]="nomineeName">
+                    <label for="nomineeNameInput">Nominee name</label>
+                </div>
+                <div class="form-floating input-row12">
+                    <input type="number" class="form-control" id="nomineeAgeInput" placeholder="text" [(ngModel)]="nomineeAge">
+                    <label for="nomineeAgeInput">Age</label>
+                </div>
+
+            </div>
+
+            <div class="input-row">
+
+                <div class="form-floating input-row21">
+                    <input type="number" class="form-control" id="loanAmountInput" placeholder="text" [(ngModel)]="loanAmount">
+                    <label for="loanAmountInput">loan amount</label>
+                </div>
+                <div class="form-floating input-row22">
+                    <input type="number" class="form-control" id="loanDurationInput" placeholder="text" [(ngModel)]="duration">
+                    <label for="loanDurationInput">Duration (in months)</label>
+                </div>
+
+            </div>
+
+            <p> * I here by agree to all the terms & conditions to make this loan. I agree to pay interest with the dynamic interests depending up on the market conditions. I agree to repay the loan before the deadline.</p>
+
+            <button class="btn btn-primary" (click)="createNewLoans()" >Apply</button>
+
+        </div>
+        
+    </div>
+
+</div>
